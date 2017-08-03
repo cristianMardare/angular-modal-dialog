@@ -1,0 +1,35 @@
+<div bsModal #inner="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header radius">
+                <h4 class="modal-title pull-left offset">{{settings?.title}}</h4>
+
+                <i class="fa fa-check-circle header-icon" aria-hidden="true" *ngIf="type=='success'"></i>
+                <span class="fa fa-info-circle header-icon" *ngIf="type=='info'"></span>
+                <span class="fa fa-exclamation-circle header-icon error" *ngIf="settings?.type=='error'"></span>
+
+
+                <button type="button" class="close pull-right" (click)="hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="min-height: 100px">
+                <label for="">{{settings?.message}}</label>
+                <br>
+                <div [hidden]="settings?.type!='error'">
+                    <button (click)="toggleCollapse()"><i class="fa fa-exclamation-triangle error"></i>
+                    </button>
+                    <label> More info..</label>
+                    <div id="demo" class="collapse" [ngClass]="{'in':isCollapsed}">
+                        <label for="">{{settings?.extraDetails}}</label>
+                    </div>
+                </div>
+                <div class="modal-form">
+                        <button type="button" data-automation-id="modal.ok" [hidden]="settings?.type!='error'" (click)="hide()">OK</button>
+                        <button type="button" data-automation-id="modal.yes" [hidden]="settings?.type!='confirm'" (click)="onAccept()">Yes</button>
+                        <button type="button" data-automation-id="modal.no" [hidden]="settings?.type!='confirm'" (click)="onReject()">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

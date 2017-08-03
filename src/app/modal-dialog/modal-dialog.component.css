@@ -1,0 +1,25 @@
+    .header-icon {
+        position: absolute;
+        left: 10px;
+        top: 20px;
+    }
+
+    .modal-header.radius {
+        border-radius: 5px
+    }
+
+    .modal-title.offset {
+        margin-left: 10px;
+    }
+
+    .error {
+        color: red
+    }
+
+    .collapse {
+        padding-left: 10px;
+    }
+
+    .modal-form {
+        text-align: right;
+    }
